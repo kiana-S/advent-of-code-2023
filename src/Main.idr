@@ -2,24 +2,25 @@ module Main
 
 import Data.List1
 import Data.String
-import AllDays
 import Language.Reflection
+
+import AllDays
 
 %language ElabReflection
 
 
 partId : String
-partId = "1-1"
+partId = "2-2"
 
 
 fetchSolution : String -> Elab (String -> String)
-fetchSolution str = do
-  let (day ::: [part]) = split (=='-') str
+fetchSolution idn = do
+  let (day ::: [part]) = split (=='-') idn
       | _ => fail "Invalid identifier"
   let name = NS (MkNS ["Part" ++ part, "Day" ++ day]) `{solution}
 
   check `(\s => show (~(IVar EmptyFC name) s))
-    <|> fail "Identifier does not point to valid solution"
+    <|> fail "\{show name} does not exist as a valid solution"
 
 getUntilEmpty : IO String
 getUntilEmpty = go ""
