@@ -10,9 +10,7 @@ import Data.String
 public export
 record Cubes where
   constructor MkCubes
-  red : Nat
-  green : Nat
-  blue : Nat
+  red, green, blue : Nat
 
 export
 Semigroup Cubes where
