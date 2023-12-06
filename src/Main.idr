@@ -11,7 +11,7 @@ import AllDays
 
 
 partId : String
-partId = "3-2"
+partId = "4-2"
 
 
 fetchSolution : String -> Elab (String -> String)
