@@ -10,3 +10,5 @@ import public Day4.Part1
 import public Day4.Part2
 import public Day5.Part1
 import public Day5.Part2
+import public Day6.Part1
+import public Day6.Part2
