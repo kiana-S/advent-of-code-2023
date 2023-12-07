@@ -1,9 +1,12 @@
 module Main
 
+import Data.Morphisms
+import Data.Maybe
 import Data.Nat
 import Data.List1
 import Data.String
 import Language.Reflection
+import System.File
 
 import AllDays
 
@@ -11,7 +14,7 @@ import AllDays
 
 
 partId : String
-partId = "4-2"
+partId = "5-2"
 
 
 fetchSolution : String -> Elab (String -> String)
@@ -29,7 +32,7 @@ getUntilEmpty = go ""
     go : String -> IO String
     go str = do
       line <- getLine
-      if line == ""
+      if trim line == "\\"
         then pure str
         else go (str ++ "\n" ++ line)
 
